@@ -8,7 +8,7 @@ Thread model: posix
 -std=c++2a
 ```
 # 1. 常量
-## nullptr
+## 1.1 nullptr
 用于区分指针、0，其类型为nullptr_t，是能隐式转换为任何指针或成员指针的类型，并能和他们进行相等或者不等的比较。<br>
 运行下面代码可以看到，NULL与0、void*、nullptr均不相同，对于空指针，应该直接使用nullptr。
 ```cpp
@@ -41,7 +41,7 @@ void test(int i){
     std::cout << "call test(int)" << std::endl;
 }
 ```
-## constexpr
+## 1.2 constexpr
 常量表达式，常用于数组定义阶段。<br>
 此外constexpr修饰的函数支持递归（且从c++14开始，可以在内部使用局部变量、循环和分支等简单语句）
 ```cpp
@@ -74,7 +74,7 @@ int main(){
 }
 ```
 # 2. 变量及其初始化
-## if / switch变量声明强化
+## 2.1 if / switch变量声明强化
 在if条件判断内使用变量声明。
 ```cpp
 #include<iostream>
@@ -93,7 +93,7 @@ int main(){
     return 0;
 }
 ```
-## 初始化列表
+## 2.2 初始化列表
 用于对于类对象的列表初始化。<br>
 将初始化列表作为一种类型，称为std::initializer_list。
 ```cpp
@@ -123,7 +123,7 @@ int main(){
     return 0;
 }
 ```
-## 结构化绑定
+## 2.3 结构化绑定
 结构化绑定提供了类似其他语言（例如python）中提供的多返回值的功能。
 ```cpp
 #include<iostream>
