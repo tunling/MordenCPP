@@ -9,7 +9,7 @@ Thread model: posix
 ```
 # 1. 常量
 ## nullptr
-用于区分指针、0，其类型为nullptr_t，是能隐式转换为任何指针或成员指针的类型，并能和他们进行相等或者不等的比较。
+用于区分指针、0，其类型为nullptr_t，是能隐式转换为任何指针或成员指针的类型，并能和他们进行相等或者不等的比较。<br>
 运行下面代码可以看到，NULL与0、void*、nullptr均不相同，对于空指针，应该直接使用nullptr。
 ```cpp
 #include<iostream>
@@ -42,7 +42,7 @@ void test(int i){
 }
 ```
 ## constexpr
-常量表达式，常用于数组定义阶段。
+常量表达式，常用于数组定义阶段。<br>
 此外constexpr修饰的函数支持递归（且从c++14开始，可以在内部使用局部变量、循环和分支等简单语句）
 ```cpp
 #include<iostream>
@@ -94,7 +94,7 @@ int main(){
 }
 ```
 ## 初始化列表
-用于对于类对象的列表初始化。
+用于对于类对象的列表初始化。<br>
 将初始化列表作为一种类型，称为std::initializer_list。
 ```cpp
 #include<iostream>
