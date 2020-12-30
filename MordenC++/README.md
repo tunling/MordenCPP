@@ -1,11 +1,12 @@
 # 环境
+```
 clang++
 clang version 6.0.0-1ubuntu2 (tags/RELEASE_600/final)
 Target: x86_64-pc-linux-gnu
 Thread model: posix
 
 -std=c++2a
-
+```
 # 1. 常量
 ## nullptr
 用于区分指针、0，其类型为nullptr_t，是能隐式转换为任何指针或成员指针的类型，并能和他们进行相等或者不等的比较。
@@ -69,6 +70,71 @@ int main(){
     char a7[len_constexpr() + 1]; //合法
     std::cout << fib(10) << std::endl;
     //55
+    return 0;
+}
+```
+# 2. 变量及其初始化
+## if / switch变量声明强化
+在if条件判断内使用变量声明。
+```cpp
+#include<iostream>
+#include<vector>
+#include<algorithm>
+int main(){
+    std::vector<int> vec = {1, 2, 3 , 4};
+    // 将临时变量放到 if 语句内
+    if (const std::vector<int>::iterator itr = std::find(vec.begin(), vec.end(), 3);
+        itr != vec.end()) {
+        *itr = 4;
+    }
+    //将输出1 2 4 4
+    for (std::vector<int>::iterator element = vec.begin(); element != vec.end(); ++element)
+        std::cout << *element << std::endl;
+    return 0;
+}
+```
+## 初始化列表
+用于对于类对象的列表初始化。
+将初始化列表作为一种类型，称为std::initializer_list。
+```cpp
+#include<iostream>
+#include<initializer_list>
+#include<vector>
+class init_list_test{
+private:
+    std::vector<int> vec;
+public:
+    init_list_test(std::initializer_list<int> list){
+        for(std::initializer_list<int>::iterator it = list.begin();
+            it != list.end(); ++it)
+            vec.push_back(*it);
+    }
+    void show(){
+        for(std::vector<int>::iterator it = vec.begin();
+            it != vec.end(); ++it) 
+            std::cout << *it << std::endl;
+    }
+};
+int main(){
+    //或者init_list_test test = {1, 2, 3, 4, 5};
+    init_list_test test{1, 2, 3, 4, 5};
+    //1 2 3 4 5
+    test.show();
+    return 0;
+}
+```
+## 结构化绑定
+结构化绑定提供了类似其他语言（例如python）中提供的多返回值的功能。
+```cpp
+#include<iostream>
+#include<tuple>
+std::tuple<int, double, std::string> test(){
+    return std::make_tuple(1, 3.14, "486");
+}
+int main(){
+    auto [x, y, z] = test();
+    //1, 3.14, 486
+    std::cout << x << ", " << y << ", " << z << std::endl;
     return 0;
 }
 ```
