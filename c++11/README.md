@@ -1,4 +1,4 @@
-# environment
+# 环境
 clang++
 clang version 6.0.0-1ubuntu2 (tags/RELEASE_600/final)
 Target: x86_64-pc-linux-gnu
