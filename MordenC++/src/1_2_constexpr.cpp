@@ -1,17 +1,21 @@
-#include<iostream>
+#include <iostream>
 #define LEN 10
-int len(){
+int len()
+{
     int i = 2;
     return i;
 }
-const int len_constexpr(){
+const int len_constexpr()
+{
     return 5;
 }
-const int fib(const int n){
-    return n == 1 || n == 2 ? 1 : fib(n-1)+fib(n-2);
+const int fib(const int n)
+{
+    return n == 1 || n == 2 ? 1 : fib(n - 1) + fib(n - 2);
 }
-int main(){
-    char a1[10]; //合法
+int main()
+{
+    char a1[10];  //合法
     char a2[LEN]; //合法
     int len1 = 10;
     //char a3[len1]; //非法
